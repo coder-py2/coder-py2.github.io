@@ -10,11 +10,18 @@
     <link href="https://uploads-ssl.webflow.com/6366a257ca5ec4c884adf776/css/aipaws.webflow.8524e0285.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
     <script type="text/javascript">
-      WebFont.load({
+      WebFontConfig = {
         google: {
-          families: ["Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic", "Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic", "Unna:regular,italic,700,700italic"]
+            families: ["Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic", "Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic", "Unna:regular,italic,700,700italic"]
         }
-      });
+    };
+
+    (function(d) {
+        var wf = d.createElement('script'), s = d.scripts[0];
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+        wf.async = true;
+        s.parentNode.insertBefore(wf, s);
+    })(document);
     </script>
     <!--[if lt IE 9]>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script>
@@ -40,6 +47,47 @@
         "hideDecimalForWholeNumbers": false
       };
     </script>
+    <style>
+      .add-to-cart {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #fb703e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.add-to-cart span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.add-to-cart span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.add-to-cart:hover span {
+  padding-right: 25px;
+}
+
+.add-to-cart:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+    </style>
   </head>
   <body class="body">
     <div class="section cc-product-detail">
@@ -59,7 +107,10 @@
                 <span class="text-span-2">$40.95</span> $29
               </div>
               <script src="https://gumroad.com/js/gumroad.js"></script>
-              <a href="https://user.gumroad.com/l/aipaws">Buy on</a>
+              <a href="https://jrhamdi.gumroad.com/l/aipaws" data-gumroad-overlay-checkout="true"><button class="add-to-cart" style="vertical-align:middle"><span>Add to Cart </span></button></a>
+
+              
+
               <div data-w-id="b54f57a3-3bf6-10fa-2ba5-8afb399043c3" class="faq-divider margin-top-btm"></div>
               <div class="product_main-description">
                 <div bind="f07e8694-07da-74f3-2a8c-b76eaf91a414" class="paragraph-light product">40 high resolution, beautiful, one-of-a-kind portraits of your pets in a variety of styles, perfect for gifts or to simply cherish your pet&#x27;s memory. Our team of creative technologists use the latest AI technology to create your pet&#x27;s portrait in just 4-6 hours. We deliver the final product via email, so you can share it with loved ones or print it out to keep forever. <br />**Please follow the image upload instructions below before uploading any images: </div>
