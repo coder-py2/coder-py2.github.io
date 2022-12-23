@@ -102,16 +102,60 @@
               <h1 bind="f07e8694-07da-74f3-2a8c-b76eaf91a410" class="product-detail-name">Unique Artworks of Your Pet + FREE MYSTERY GIFT 🎁</h1>
               <img src="https://uploads-ssl.webflow.com/6366a257ca5ec4c884adf776/637180e571bc7392bebe033e_6366f2a376bc38b3fac7d14a_ratings.png" loading="lazy" width="91" srcset="https://uploads-ssl.webflow.com/6366a257ca5ec4c884adf776/6366f2a376bc38b3fac7d14a_ratings-p-500.png 500w, https://uploads-ssl.webflow.com/6366a257ca5ec4c884adf776/6366f2a376bc38b3fac7d14a_ratings.png 600w" sizes="91px" alt="" class="image-14" />
               <div data-commerce-type="variation-price" bind="f07e8694-07da-74f3-2a8c-b76eaf91a412" class="product-detail-price">
-                <span class="text-span-2">$40.95</span> $29
+                <span class="text-span-2">$29</span> $7.25
               </div>
-              <script src="https://gumroad.com/js/gumroad.js"></script>
-              <a href="https://steemed.gumroad.com/l/aipaws" data-gumroad-overlay-checkout="true"><button class="add-to-cart" style="vertical-align:middle"><span>Add to Cart </span></button></a>
+              <div id="smart-button-container">
+                <div style="text-align: center;">
+                  <div id="paypal-button-container"></div>
+                </div>
+              </div>
+              <script src="https://www.paypal.com/sdk/js?client-id=AVyOiBeKKi19_fLEUAausVmF0-WrkCKRZP472WFpMKjH_0q8ZN5a7z2ACZyYKCFFR8VZPAOkHVXbJZv7&enable-funding=paylater&currency=USD" data-sdk-integration-source="button-factory"></script>
+              <script>
+                function initPayPalButton() {
+                  paypal.Buttons({
+                    style: {
+                      shape: 'rect',
+                      color: 'white',
+                      layout: 'vertical',
+                      label: 'paypal',
+                      
+                    },
+            
+                    createOrder: function(data, actions) {
+                      return actions.order.create({
+                        purchase_units: [{"description":"Ai Paws","amount":{"currency_code":"USD","value":7.25}}]
+                      });
+                    },
+            
+                    onApprove: function(data, actions) {
+                      return actions.order.capture().then(function(orderData) {
+                        
+                        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            
+                        const element = document.getElementById('paypal-button-container');
+                        element.innerHTML = '';
+                        element.innerHTML = '<h3>Processing your order! Wait for our email</h3>';
+                        
+                      });
+                    },
+            
+                    onError: function(err) {
+                      console.log(err);
+                    }
+                  }).render('#paypal-button-container');
+                }
+                initPayPalButton();
+              </script>
+
+
+
+
 
               
 
               <div data-w-id="b54f57a3-3bf6-10fa-2ba5-8afb399043c3" class="faq-divider margin-top-btm"></div>
               <div class="product_main-description">
-                <div bind="f07e8694-07da-74f3-2a8c-b76eaf91a414" class="paragraph-light product">40 high resolution, beautiful, one-of-a-kind portraits of your pets in a variety of styles, perfect for gifts or to simply cherish your pet&#x27;s memory. Our team of creative technologists use the latest AI technology to create your pet&#x27;s portrait in just 4-6 hours. We deliver the final product via email, so you can share it with loved ones or print it out to keep forever. <br />**Please follow the image upload instructions below before uploading any images: </div>
+                <div bind="f07e8694-07da-74f3-2a8c-b76eaf91a414" class="paragraph-light product">35 high resolution, beautiful, one-of-a-kind portraits of your pets in a variety of styles, perfect for gifts or to simply cherish your pet&#x27;s memory. Our team of creative technologists use the latest AI technology to create your pet&#x27;s portrait in just 4-6 hours. We deliver the final product via email, so you can share it with loved ones or print it out to keep forever. <br />**Please follow the image upload instructions below before uploading any images: </div>
               </div>
               <div class="product_sec-desciption">
                 <div bind="1eaec6ec-b858-8e7b-4f57-192ec8546ad6" class="paragraph-light product">DO: <br />
